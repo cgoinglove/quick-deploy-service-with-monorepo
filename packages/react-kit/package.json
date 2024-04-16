@@ -1,12 +1,12 @@
 {
-  "name": "@repo/ui",
+  "name": "@repo/react-kit",
   "version": "0.0.0",
   "sideEffects": [
     "**/*.css"
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./card": "./src/card.tsx"
+    "./card": "./src/components/card.tsx"
   },
   "license": "MIT",
   "scripts": {
