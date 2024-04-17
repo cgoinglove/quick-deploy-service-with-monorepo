@@ -5,16 +5,16 @@
     "**/*.css"
   ],
   "exports": {
-    "./styles.css": "./dist/index.css",
-    "./card": "./src/components/card.tsx",
-    "./button": "./src/components/button.tsx"
+    "./button": "./src/componentsbutton.tsx",
+    "./styles.css": "./dist/index.css"
   },
   "license": "MIT",
   "scripts": {
     "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
     "lint": "eslint src/",
     "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "gen": "turbo gen react-component"
   },
   "peerDependencies": {
     "react": "^18.2.0"
@@ -25,6 +25,7 @@
     "@repo/typescript-config": "workspace:*",
     "@repo/shared": "workspace:*",
     "@types/react": "^18.2.61",
+    "@turbo/gen": "^1.12.4",
     "autoprefixer": "^10.4.18",
     "postcss": "^8.4.35",
     "react": "^18.2.0",
