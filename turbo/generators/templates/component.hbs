@@ -1,7 +1,34 @@
 {{#if (eq componentType 'client component')}}
 'use client';
 {{/if}}
-export default function {{ pascalCase name }} () {
+{{#if (eq withChildren 'Y')}}
+import { type PropsWithChildren } from "react";
+{{/if}}
+
+
+{{#if (eq propType 'type')}}
+export type {{pascalCase name}}Props = 
+{{#if (eq withChildren 'Y')}}
+PropsWithChildren<{}>
+{{else}}
+{}
+{{/if}};
+{{/if}}
+
+{{#if (eq propType 'interface')}}
+export interface {{pascalCase name}}Props
+{{#if (eq withChildren 'Y')}}
+extends PropsWithChildren<{}>
+{{else}}
+{}
+{{/if}};
+{{/if}}
+
+export function {{ pascalCase name }}(
+  {{#if (not  propType 'none')}}
+  props: {{pascalCase name}}Props
+  {{/if}}
+) {
   return (
     <div>
       <h1>{{ pascalCase name }} Component</h1>

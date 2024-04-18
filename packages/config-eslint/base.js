@@ -6,5 +6,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/consistent-type-definitions': 'off',
+    'storybook/story-exports': 'off',
   },
 };

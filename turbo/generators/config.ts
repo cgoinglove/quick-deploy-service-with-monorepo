@@ -5,8 +5,9 @@ import { exec } from 'child_process';
 
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
   plop.addHelper('eq', (v1, v2) => v1 === v2);
+  plop.addHelper('not', (v1, v2) => v1 != v2);
   plop.setGenerator('react-component', {
-    description: 'Adds a new react component',
+    description: '@repo/react-kit',
     prompts: [
       {
         type: 'input',
@@ -18,6 +19,22 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         name: 'componentType',
         message: '컴퍼넌트 타입',
         choices: ['server component', 'client component'],
+        default: 'server component',
+      },
+      {
+        type: 'list',
+        name: 'propType',
+        message: 'Props 사용 여부',
+        choices: ['none', 'type', 'interface'],
+        default: 'none',
+      },
+      {
+        type: 'list',
+        name: 'withChildren',
+        message: 'Props Children 사용 여부',
+        choices: ['N', 'Y'],
+        default: 'N',
+        when: answers => answers.propType !== 'none',
       },
     ],
 
@@ -26,6 +43,11 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         type: 'add',
         path: 'packages/react-kit/src/components/{{kebabCase name}}.tsx',
         templateFile: 'templates/component.hbs',
+      },
+      {
+        type: 'add',
+        path: 'packages/react-kit/src/stories/{{kebabCase name}}.stories.tsx',
+        templateFile: 'templates/story.hbs',
       },
       {
         type: 'append',
