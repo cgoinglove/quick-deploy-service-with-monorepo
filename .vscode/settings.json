@@ -1,4 +1,5 @@
 {
+  "git.autofetch": true,
   "eslint.workingDirectories": [
     {
       "mode": "auto"
@@ -7,5 +8,15 @@
   "[handlebars]": {
     "editor.defaultFormatter": null,
     "editor.formatOnSave": false
-  }
+  },
+  "tailwindCSS.experimental.classRegex": [
+    // Constants like: const TSS = 'w-50 flex'
+    "const\\s+TSS[A-Z_]*\\s*=\\s*['\"]([^'\"]*)['\"]",
+
+    // Inside objects like: TSS_CARD: { LAYOUT: 'flex' }
+    "TSS_[A-Z_]+:\\s*['\"]([^'\"]*)['\"]",
+
+    // For patterns that include multiple definitions in an object
+    "TSS_[A-Z_]+:\\s*{[^}]*?['\"]([^'\"]*)['\"]"
+  ]
 }
