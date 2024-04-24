@@ -12,17 +12,11 @@ const project = resolve(process.cwd(), 'tsconfig.json');
  */
 
 module.exports = {
-  extends: [
-    '@vercel/style-guide/eslint/node',
-    '@vercel/style-guide/eslint/typescript',
-    './base.js',
-  ].map(require.resolve),
+  extends: ['@vercel/style-guide/eslint/typescript', './base.js'].map(
+    require.resolve,
+  ),
   parserOptions: {
     project,
-  },
-  globals: {
-    React: true,
-    JSX: true,
   },
   settings: {
     'import/resolver': {
@@ -30,7 +24,7 @@ module.exports = {
         project,
       },
       node: {
-        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
+        extensions: ['.mjs', '.js', '.ts'],
       },
     },
   },

@@ -19,6 +19,7 @@
     "build-storybook": "storybook build"
   },
   "peerDependencies": {
+    "@repo/shared": "workspace:*",
     "react": "^18.2.0"
   },
   "devDependencies": {
