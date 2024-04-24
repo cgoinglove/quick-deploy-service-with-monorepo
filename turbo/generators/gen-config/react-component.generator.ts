@@ -38,12 +38,12 @@ export const createReactComponent: Generator = plop => ({
     {
       type: 'add',
       path: 'packages/react-kit/src/components/{{kebabCase name}}.tsx',
-      templateFile: 'templates/component.hbs',
+      templateFile: 'templates/react-component/component.hbs',
     },
     {
       type: 'add',
       path: 'packages/react-kit/src/stories/{{kebabCase name}}.stories.tsx',
-      templateFile: 'templates/story.hbs',
+      templateFile: 'templates/react-component/story.hbs',
     },
     {
       type: 'append',
