@@ -1,8 +1,6 @@
-import { exec } from 'child_process';
+import { exec } from 'node:child_process';
 
-import { Generator } from '../config';
-
-export const createReactComponent: Generator = plop => ({
+export const createReactComponent: TurboGenerator = plop => ({
   description: '@repo/react-kit',
   prompts: [
     {
@@ -57,14 +55,13 @@ export const createReactComponent: Generator = plop => ({
         const root = `packages/react-kit`;
 
         const componentName = plop.getHelper('kebabCase')(
-          (answer as any).name as string,
+          (answer as { name: string }).name,
         ) as string;
 
         const paths = [
           `${root}/package.json`,
           `${root}/src/components/${componentName}.tsx`,
         ];
-
         exec(`prettier --write ${paths.join(' ')}`, (err, stdout, stderr) => {
           if (err) {
             console.error('Error running prettify:', stderr);

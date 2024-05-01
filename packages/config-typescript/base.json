@@ -17,8 +17,8 @@
     "noUnusedParameters": true,
     "preserveWatchOutput": true,
     "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "strict": true
   },
   "exclude": ["node_modules"]
 }

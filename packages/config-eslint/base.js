@@ -8,5 +8,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     'storybook/story-exports': 'off',
+    '@typescript-eslint/array-type': 'off',
+    'import/order': 'off',
   },
 };

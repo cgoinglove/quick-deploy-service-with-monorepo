@@ -1,0 +1,17 @@
+{
+  "name": "@repo/turbo-utils",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@turbo/gen": "^1.12.4",
+    "@types/js-yaml": "^4.0.9",
+    "consola": "^3.2.3",
+    "js-yaml": "^4.1.0",
+    "vitest": "^1.5.0"
+  }
+}
