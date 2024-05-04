@@ -6,8 +6,8 @@
     "lint": "turbo lint",
     "type-check": "turbo type-check",
     "prepare": "husky install",
-    "clean": "turbo clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "node ./script-helper/clean.js"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
