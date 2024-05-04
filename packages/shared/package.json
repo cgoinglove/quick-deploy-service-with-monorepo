@@ -10,7 +10,7 @@
     "./node": "./src/node/index.ts"
   },
   "scripts": {
-    "test": "vitest",
+    "test": "vitest run",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/"
   },

@@ -1,9 +1,9 @@
 {
-  "name": "load-global-env",
+  "name": "@repo/load-global-env",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest run"
   },
   "exports": {
     ".": "./loader.ts"
