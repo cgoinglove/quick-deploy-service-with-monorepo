@@ -1,0 +1,10 @@
+{
+  "extends": "@repo/typescript-config/base.json",
+
+  "compilerOptions": {
+    "lib": ["ESNext"]
+  },
+
+  "include": ["loader.ts", "__test__"],
+  "exclude": ["node_modules"]
+}
