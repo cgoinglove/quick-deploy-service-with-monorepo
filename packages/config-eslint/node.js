@@ -7,7 +7,7 @@ module.exports = {
     '@vercel/style-guide/eslint/node',
     '@vercel/style-guide/eslint/typescript',
     'eslint-config-turbo',
-    './base.js',
+    './rules.js',
   ].map(require.resolve),
   parserOptions: {
     project,

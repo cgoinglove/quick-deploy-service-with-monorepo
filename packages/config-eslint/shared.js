@@ -12,7 +12,7 @@ const project = resolve(process.cwd(), 'tsconfig.json');
  */
 
 module.exports = {
-  extends: ['@vercel/style-guide/eslint/typescript', './base.js'].map(
+  extends: ['@vercel/style-guide/eslint/typescript', './rules.js'].map(
     require.resolve,
   ),
   parserOptions: {
