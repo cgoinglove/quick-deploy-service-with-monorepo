@@ -1,29 +1,35 @@
 {
   "name": "@repo/database-service",
   "version": "0.0.0",
-  "private": true,
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "dev": "echo 'Add dev script here'",
-    "build": "echo 'Add build script here'",
+    "build": "tsc",
     "test": "vitest",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/"
   },
+  "exports": {
+    ".": "./src/orm-config.ts"
+  },
   "dependencies": {
-    "consola": "^3.2.3",
+    "@repo/shared": "workspace:^",
+    "mysql2": "^3.9.7",
+    "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.20",
     "winston": "^3.13.0"
   },
   "devDependencies": {
+    "unplugin-swc": "^1.4.5",
     "@repo/eslint-config": "workspace:*",
-    "@repo/shared": "workspace:^",
     "@repo/typescript-config": "workspace:*",
+    "load-global-env": "workspace:*",
     "@types/node": "^20.11.24",
-    "cross-env": "^7.0.3",
     "typescript": "^5.3.3",
     "vitest": "^1.5.0"
   },
-  "peerDependencies": {
-    "@repo/shared": "workspace:^"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
