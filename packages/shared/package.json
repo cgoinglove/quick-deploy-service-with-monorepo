@@ -1,19 +1,20 @@
 {
   "name": "@repo/shared",
   "version": "0.0.0",
+  "license": "MIT",
   "description": "",
-  "main": "index.js",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./const": "./src/const.ts",
+    "./browser": "./src/browser/index.ts",
+    "./node": "./src/node/index.ts"
   },
   "scripts": {
-    "test": "echo \"Error: no test @repo/shared\" && exit 1",
+    "test": "vitest",
+    "build": "tsc",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",

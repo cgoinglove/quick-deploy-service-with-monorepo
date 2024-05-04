@@ -7,3 +7,5 @@ export const autoIncrement = (
   () =>
     i++
 )();
+
+export const noop = () => {};
