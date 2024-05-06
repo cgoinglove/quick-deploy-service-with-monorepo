@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "echo 'Add dev script here'",
-    "build": "tsc",
+    "test:watch": "vitest",
     "test": "vitest run",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/"
   },
   "exports": {
-    ".": "./src/orm-config.ts"
+    ".": "./src/orm-config.ts",
+    "./todo": "./src/domain/todo/todo.service.ts"
   },
   "dependencies": {
     "@repo/shared": "workspace:^",
@@ -21,7 +21,7 @@
     "winston": "^3.13.0"
   },
   "devDependencies": {
-    "unplugin쇼-swc": "^1.4.5",
+    "unplugin-swc": "^1.4.5",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@repo/load-global-env": "workspace:*",

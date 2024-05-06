@@ -34,7 +34,8 @@ export const AppDataSource = new DataSource({
   username: GLOBAL_DB_USERNAME,
   password: GLOBAL_DB_PASSWORD,
   database: GLOBAL_DB_DATABASE,
-  synchronize: true,
-  logging: true,
+  // synchronize: Boolean(IS_DEV_MODE),
+  // logging: Boolean(IS_DEV_MODE),
+  logging: false,
   entities: [Todo],
 });

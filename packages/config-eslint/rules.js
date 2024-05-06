@@ -14,6 +14,10 @@ module.exports = {
     'turbo/no-undeclared-env-vars': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/prefer-ts-expect-error': 'off',
+    '@typescript-eslint/no-confusing-void-expression': 'off',
+    '@typescript-eslint/prefer-function-type': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    'eslint-comments/require-description': 'off',
     eqeqeq: 'off',
   },
 };

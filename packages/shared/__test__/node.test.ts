@@ -1,3 +1,5 @@
 import { test } from 'vitest';
 
-test('node', async () => {});
+test('node', () => {
+  console.log(`node test`);
+});

@@ -1,7 +1,5 @@
-'use client';
 import Image from 'next/image';
-import { useEffect } from 'react';
-import { helloWorld } from '@repo/shared';
+// import { TodoService } from '@repo/database-service/todo';
 
 function Gradient({
   conic,
@@ -22,9 +20,10 @@ function Gradient({
 }
 
 export default function Page() {
-  useEffect(() => {
-    helloWorld('ok~');
-  }, []);
+  console.log(`selected All Todos`);
+  // const todoService = new TodoService();
+  // const todoList = await todoService.selectAll();
+
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
       <div className="z-10 items-center justify-between w-full max-w-5xl font-mono text-sm lg:flex">
