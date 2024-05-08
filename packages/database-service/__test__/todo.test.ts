@@ -1,10 +1,11 @@
 import { describe, test } from 'vitest';
-
+import 'reflect-metadata';
 import { TodoService } from '../src/domain/todo/todo.service';
+import { inject } from '../src/helper/di-container';
+
+const todoService = inject(TodoService);
 
 describe('todo', () => {
-  const todoService = new TodoService();
-
   //   test('insert', async () => {
   //     const todo = await todoService.insert({
   //       title: 'Test Title',
@@ -15,7 +16,6 @@ describe('todo', () => {
   //   });
 
   test('select All ', async () => {
-    console.log(todoService);
     const todoList = await todoService.findAll();
     console.log(todoList);
   });

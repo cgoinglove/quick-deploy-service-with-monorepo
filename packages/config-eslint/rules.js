@@ -18,6 +18,7 @@ module.exports = {
     '@typescript-eslint/prefer-function-type': 'off',
     '@typescript-eslint/no-unsafe-return': 'off',
     'eslint-comments/require-description': 'off',
+    '@typescript-eslint/ban-types': 'off',
     eqeqeq: 'off',
   },
 };

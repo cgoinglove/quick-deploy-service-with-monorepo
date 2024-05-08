@@ -9,3 +9,6 @@ export const autoIncrement = (
 )();
 
 export const noop = () => {};
+
+export const isFunction = (value: unknown): value is Function =>
+  typeof value == 'function';

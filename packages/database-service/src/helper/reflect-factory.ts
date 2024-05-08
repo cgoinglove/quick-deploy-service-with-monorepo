@@ -7,7 +7,7 @@ const _set = <Value>(key: string, target: object, value: Value) =>
 const _has = (key: string, target: object): boolean =>
   Reflect.hasMetadata(key, target);
 
-export const storageFactory = <Value = unknown, Target extends object = object>(
+export const reflectFactory = <Value = unknown, Target extends object = object>(
   key: string,
 ) => ({
   get: (target: Target, defaultValue?: Value) =>

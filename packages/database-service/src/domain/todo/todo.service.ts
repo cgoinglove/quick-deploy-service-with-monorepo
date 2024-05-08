@@ -1,8 +1,10 @@
-import { inject } from '../../helper/di-container';
+import { InjectAble } from '../../helper/di-container';
+
 import { TodoRepository } from './todo.repository';
 
+@InjectAble
 export class TodoService {
-  private todoRepo = inject(TodoRepository);
+  constructor(private todoRepo: TodoRepository) {}
 
   async findAll() {
     return this.todoRepo.selectAll();
