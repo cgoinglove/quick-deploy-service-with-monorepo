@@ -5,6 +5,7 @@
     "**/*.css"
   ],
   "exports": {
+    "./todo": "./src/components/todo.tsx",
     "./button": "./src/components/button.tsx",
     "./styles.css": "./dist/index.css"
   },

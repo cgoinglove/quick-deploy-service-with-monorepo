@@ -32,6 +32,8 @@ yarn-error.log*
 # turbo
 .turbo
 
+.cache
+
 # ui
 dist/
 

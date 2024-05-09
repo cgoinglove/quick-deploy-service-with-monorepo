@@ -29,6 +29,9 @@ export function {{ pascalCase name }}(
   props: {{pascalCase name}}Props
   {{/if}}
 ) {
+   {{#if (not  propType 'none')}}
+    props
+   {{/if}}
   return (
     <div>
       <h1>{{ pascalCase name }} Component</h1>
