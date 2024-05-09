@@ -6,7 +6,7 @@ test('load-env', async () => {
   const MOCK_ENV_KEY = 'CGOING_EMAIL';
   const MOCK_ENV_VALUE = 'neo.cgoing@gmail.com';
 
-  expect(process.env[MOCK_ENV_KEY]).toBeFalsy();
+  expect(process.env[MOCK_ENV_KEY]).toBeUndefined();
 
   const ID = `${Date.now()}-TEST`;
 
