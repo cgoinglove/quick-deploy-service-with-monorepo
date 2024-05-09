@@ -32,12 +32,12 @@ importers:
 
   apps/docs:
     dependencies:
-      '@repo/database-service':
-        specifier: workspace:*
-        version: link:../../packages/database-service
       '@repo/react-kit':
         specifier: workspace:*
         version: link:../../packages/react-kit
+      '@repo/service':
+        specifier: workspace:*
+        version: link:../../packages/service
       '@repo/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -83,7 +83,7 @@ importers:
         version: 8.4.38
       tailwindcss:
         specifier: ^3.4.1
-        version: 3.4.3(ts-node@10.9.2(@types/node@20.12.8)(typescript@5.4.5))
+        version: 3.4.3(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5))
       typescript:
         specifier: ^5.3.3
         version: 5.4.5
@@ -132,7 +132,7 @@ importers:
         version: 8.4.38
       tailwindcss:
         specifier: ^3.4.1
-        version: 3.4.3(ts-node@10.9.2(@types/node@20.12.8)(typescript@5.4.5))
+        version: 3.4.3(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5))
       typescript:
         specifier: ^5.3.3
         version: 5.4.5
@@ -153,49 +153,9 @@ importers:
         version: link:../config-typescript
       tailwindcss:
         specifier: ^3.4.1
-        version: 3.4.3(ts-node@10.9.2(@types/node@20.12.8)(typescript@5.4.5))
+        version: 3.4.3(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5))
 
   packages/config-typescript: {}
-
-  packages/database-service:
-    dependencies:
-      '@repo/shared':
-        specifier: workspace:^
-        version: link:../shared
-      mysql2:
-        specifier: ^3.9.7
-        version: 3.9.7
-      reflect-metadata:
-        specifier: ^0.2.2
-        version: 0.2.2
-      typeorm:
-        specifier: ^0.3.20
-        version: 0.3.20(mysql2@3.9.7)(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5))
-      winston:
-        specifier: ^3.13.0
-        version: 3.13.0
-    devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../config-eslint
-      '@repo/load-global-env':
-        specifier: workspace:*
-        version: link:../load-global-env
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../config-typescript
-      '@types/node':
-        specifier: ^20.11.24
-        version: 20.12.8
-      typescript:
-        specifier: ^5.3.3
-        version: 5.4.5
-      unplugin-swc:
-        specifier: ^1.4.5
-        version: 1.4.5(@swc/core@1.4.17(@swc/helpers@0.5.5))(rollup@4.17.2)
-      vitest:
-        specifier: ^1.5.0
-        version: 1.6.0(@types/node@20.12.8)
 
   packages/load-global-env:
     devDependencies:
@@ -276,10 +236,50 @@ importers:
         version: 8.0.9(@babel/preset-env@7.24.5(@babel/core@7.24.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwindcss:
         specifier: ^3.4.1
-        version: 3.4.3(ts-node@10.9.2(@types/node@20.12.8)(typescript@5.4.5))
+        version: 3.4.3(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5))
       typescript:
         specifier: ^5.3.3
         version: 5.4.5
+
+  packages/service:
+    dependencies:
+      '@repo/shared':
+        specifier: workspace:^
+        version: link:../shared
+      mysql2:
+        specifier: ^3.9.7
+        version: 3.9.7
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
+      typeorm:
+        specifier: ^0.3.20
+        version: 0.3.20(mysql2@3.9.7)(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5))
+      winston:
+        specifier: ^3.13.0
+        version: 3.13.0
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../config-eslint
+      '@repo/load-global-env':
+        specifier: workspace:*
+        version: link:../load-global-env
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../config-typescript
+      '@types/node':
+        specifier: ^20.11.24
+        version: 20.12.8
+      typescript:
+        specifier: ^5.3.3
+        version: 5.4.5
+      unplugin-swc:
+        specifier: ^1.4.5
+        version: 1.4.5(@swc/core@1.4.17(@swc/helpers@0.5.5))(rollup@4.17.2)
+      vitest:
+        specifier: ^1.5.0
+        version: 1.6.0(@types/node@20.12.8)
 
   packages/shared:
     devDependencies:
@@ -306,7 +306,7 @@ importers:
         version: link:../config-typescript
       '@turbo/gen':
         specifier: ^1.12.4
-        version: 1.13.3(@types/node@20.12.8)(typescript@5.4.5)
+        version: 1.13.3(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5)
       '@types/js-yaml':
         specifier: ^4.0.9
         version: 4.0.9
@@ -7573,7 +7573,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@turbo/gen@1.13.3(@types/node@20.12.8)(typescript@5.4.5)':
+  '@turbo/gen@1.13.3(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5)':
     dependencies:
       '@turbo/workspaces': 1.13.3
       chalk: 2.4.2
@@ -10704,7 +10704,7 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.4.38
 
-  postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.12.8)(typescript@5.4.5)):
+  postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5)):
     dependencies:
       lilconfig: 3.1.1
       yaml: 2.4.2
@@ -11452,7 +11452,7 @@ snapshots:
       '@pkgr/core': 0.1.1
       tslib: 2.6.2
 
-  tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.12.8)(typescript@5.4.5)):
+  tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -11471,7 +11471,7 @@ snapshots:
       postcss: 8.4.38
       postcss-import: 15.1.0(postcss@8.4.38)
       postcss-js: 4.0.1(postcss@8.4.38)
-      postcss-load-config: 4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.12.8)(typescript@5.4.5))
+      postcss-load-config: 4.0.2(postcss@8.4.38)(ts-node@10.9.2(@swc/core@1.4.17(@swc/helpers@0.5.5))(@types/node@20.12.8)(typescript@5.4.5))
       postcss-nested: 6.0.1(postcss@8.4.38)
       postcss-selector-parser: 6.0.16
       resolve: 1.22.8

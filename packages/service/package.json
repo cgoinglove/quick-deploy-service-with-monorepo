@@ -1,5 +1,5 @@
 {
-  "name": "@repo/database-service",
+  "name": "@repo/service",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +10,7 @@
     "lint": "eslint src/"
   },
   "exports": {
-    ".": "./src/orm-config.ts",
-    "./todo": "./src/domain/todo/todo.service.ts"
+    ".": "./src/index.ts"
   },
   "dependencies": {
     "@repo/shared": "workspace:^",
