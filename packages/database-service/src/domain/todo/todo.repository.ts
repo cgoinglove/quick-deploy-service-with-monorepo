@@ -6,15 +6,25 @@ import { Todo } from './todo.entity';
 export class TodoRepository {
   private todoRepo = AppDataSource.getRepository(Todo);
 
-  async selectAll() {
+  async findById(id: Todo['id']) {
+    return this.todoRepo.findOneBy({
+      id,
+    });
+  }
+
+  async findAll() {
     return this.todoRepo.find({});
   }
 
   async insert(todo: Pick<Todo, 'title' | 'content'>) {
     return this.todoRepo.save({ ...todo, complete: false });
   }
-
-  async delete(todo: Todo | Todo['id']) {
+  async update(id: Todo['id']) {
+    return this.todoRepo.update(id, {
+      complete: true,
+    });
+  }
+  async delete(todo: Todo['id']) {
     return this.todoRepo.delete(todo);
   }
 }
