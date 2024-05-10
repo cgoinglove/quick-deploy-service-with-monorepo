@@ -10,10 +10,7 @@ suite('Todo', () => {
   let id: Todo['id'];
 
   test('Insert', async () => {
-    const newTodo = await todoService.add({
-      title: 'Todo',
-      content: 'Hello World',
-    });
+    const newTodo = await todoService.add('Hello World');
 
     id = newTodo.id;
 

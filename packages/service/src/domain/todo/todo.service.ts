@@ -17,8 +17,8 @@ export class TodoService {
   async deleteById(id: Todo['id']) {
     return this.todoRepo.delete(id);
   }
-  async add(todo: Pick<Todo, 'content' | 'title'>) {
-    return this.todoRepo.insert(todo);
+  async add(content:Todo['content']) {
+    return this.todoRepo.insert(content);
   }
   async complete(id: Todo['id']) {
     return this.todoRepo.update(id);

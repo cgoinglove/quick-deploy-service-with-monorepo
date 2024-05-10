@@ -1,4 +1,5 @@
 const { resolve } = require('node:path');
+const rules = require('./rules');
 
 const project = resolve(process.cwd(), 'tsconfig.json');
 
@@ -23,6 +24,10 @@ module.exports = {
   },
   globals: {
     JSX: true,
+  },
+  rules:{
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
   },
   settings: {
     'import/resolver': {

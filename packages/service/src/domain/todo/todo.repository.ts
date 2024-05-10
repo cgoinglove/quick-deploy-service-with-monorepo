@@ -16,8 +16,8 @@ export class TodoRepository {
     return this.todoRepo.find({});
   }
 
-  async insert(todo: Pick<Todo, 'title' | 'content'>) {
-    return this.todoRepo.save({ ...todo, complete: false });
+  async insert(content: Todo['content']) {
+    return this.todoRepo.save({ content, complete: false });
   }
   async update(id: Todo['id']) {
     return this.todoRepo.update(id, {

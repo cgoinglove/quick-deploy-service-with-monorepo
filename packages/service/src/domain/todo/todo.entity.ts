@@ -13,15 +13,10 @@ export class Todo {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({
-    nullable: false,
-    comment: '제목',
-    length: 20,
-  })
-  title: string;
+
 
   @Column({
-    nullable: true,
+    nullable: false,
     comment: '내용',
     length: 100,
   })
