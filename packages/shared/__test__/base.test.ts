@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import * as BASE from '../src';
+import * as BASE from '../src/base';
 
 test('base', () => {
   const zero = BASE.autoIncrement();

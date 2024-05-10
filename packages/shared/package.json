@@ -4,9 +4,9 @@
   "license": "MIT",
   "description": "",
   "exports": {
-    ".": "./src/index.ts",
-    "./const": "./src/const.ts",
-    "./browser": "./src/browser/index.ts",
+    ".": "./src/base/index.ts",
+    "./const": "./src/const/index.ts",
+    "./browser": "./src/base/browser/index.ts",
     "./node": "./src/node/index.ts"
   },
   "scripts": {
