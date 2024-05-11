@@ -22,8 +22,6 @@ type Func<Args extends any[] = any[], ReturnValue = any> = (
   ...args: Args
 ) => ReturnValue;
 
-
 type ElementType<T> = T extends (infer U)[] ? U : never;
-
 
 type ValueOf<T extends object> = T[keyof T];

@@ -1,4 +1,4 @@
-import { type Reducer, useReducer } from 'react';
+import { type Reducer, useReducer } from "react";
 
 const reducer: Reducer<number, void> = (prev) => prev + 1;
 

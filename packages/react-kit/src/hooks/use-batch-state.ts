@@ -1,6 +1,5 @@
-
-import { createDebounce } from '@repo/shared';
-import {type  DependencyList, useMemo, useState } from 'react';
+import { createDebounce } from "@repo/shared";
+import { type DependencyList, useMemo, useState } from "react";
 
 /**
  * unstable

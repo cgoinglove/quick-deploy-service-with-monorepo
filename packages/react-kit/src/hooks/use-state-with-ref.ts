@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from "react";
 
 export const useStateWithRef = <T = any>(initialValue: T) => {
   const [state, setState] = useState(initialValue);
@@ -6,7 +6,7 @@ export const useStateWithRef = <T = any>(initialValue: T) => {
 
   const setter = useCallback((dispatch: T | ((prev: T) => T)) => {
     let value: T;
-    if (typeof dispatch == 'function')
+    if (typeof dispatch == "function")
       value = (dispatch as (prev: T) => T)(ref.current);
     else value = dispatch;
     ref.current = value;

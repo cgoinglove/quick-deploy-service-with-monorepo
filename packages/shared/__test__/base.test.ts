@@ -1,7 +1,7 @@
-import { expect, test } from 'vitest';
-import * as BASE from '../src/base';
+import { expect, test } from "vitest";
+import * as BASE from "../src/base";
 
-test('base', () => {
+test("base", () => {
   const zero = BASE.autoIncrement();
   const one = BASE.autoIncrement();
   const two = BASE.autoIncrement();

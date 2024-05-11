@@ -16,6 +16,7 @@
     "test:watch": {
       "cache": false
     },
+    "start": {},
     "lint": {},
     "type-check": {},
     "dev": {

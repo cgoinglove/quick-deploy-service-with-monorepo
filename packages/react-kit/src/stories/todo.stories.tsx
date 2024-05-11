@@ -1,13 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Todo } from '../components/todo';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Todo } from "../components/todo";
+import { noop } from "@repo/shared";
 
 const meta = {
-  title: 'Todo',
+  title: "Todo",
   component: Todo,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {},
 } satisfies Meta<typeof Todo>;
 
@@ -19,6 +20,7 @@ export const Default: Story = {
   args: {
     complete: true,
     createdAt: new Date().toDateString(),
-    content: 'Hello world~',
+    content: "Hello world~",
+    onDeleteClick: noop,
   },
 };

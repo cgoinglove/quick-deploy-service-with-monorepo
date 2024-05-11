@@ -4,20 +4,18 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-} from 'typeorm';
+} from "typeorm";
 
 @Entity({
-  name: 'todo',
+  name: "todo",
 })
 export class Todo {
   @PrimaryGeneratedColumn()
   id: number;
 
-
-
   @Column({
     nullable: false,
-    comment: '내용',
+    comment: "내용",
     length: 100,
   })
   content: string;
@@ -26,8 +24,8 @@ export class Todo {
   complete: boolean;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: string;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt: string;
 }

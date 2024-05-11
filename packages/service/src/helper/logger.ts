@@ -1,11 +1,11 @@
-import { IS_DEV_MODE } from '@repo/shared/const';
+import { IS_DEV_MODE } from "@repo/shared/const";
 
-import { createLogger, format, transports } from 'winston';
+import { createLogger, format, transports } from "winston";
 
-const LABEL = 'DATA-BASE';
+const LABEL = "DATA-BASE";
 
 export const logger = createLogger({
-  level: IS_DEV_MODE ? 'debug' : 'info',
+  level: IS_DEV_MODE ? "debug" : "info",
   format: format.combine(
     format.colorize(),
     format.label({
@@ -14,7 +14,7 @@ export const logger = createLogger({
 
     format.printf(({ level, message }) => {
       const timestamp = new Date().toLocaleString();
-      if (typeof message == 'string')
+      if (typeof message == "string")
         return `${level} ${timestamp} [${LABEL}]: ${message}`;
       return `${level} ${timestamp} [${LABEL}]:\n${JSON.stringify(message, null, 2)}`;
     }),

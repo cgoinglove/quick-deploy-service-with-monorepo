@@ -1,9 +1,9 @@
-import 'reflect-metadata';
-import '@repo/load-global-env';
-import { IS_DEV_MODE, RUNTIME } from '@repo/shared/const';
-import { DataSource } from 'typeorm';
-import { logger } from './helper/logger';
-import { Todo } from './domain/todo/todo.entity';
+import "reflect-metadata";
+import "@repo/load-global-env";
+import { IS_DEV_MODE, RUNTIME } from "@repo/shared/const";
+import { DataSource } from "typeorm";
+import { logger } from "./helper/logger";
+import { Todo } from "./domain/todo/todo.entity";
 
 const {
   GLOBAL_DB_HOST,
@@ -15,7 +15,7 @@ const {
 
 IS_DEV_MODE &&
   logger.info({
-    DESC: 'DB-SOURCE',
+    DESC: "DB-SOURCE",
     DATA: {
       RUNTIME,
       IS_DEV_MODE,
@@ -28,14 +28,13 @@ IS_DEV_MODE &&
   });
 
 export const AppDataSource = new DataSource({
-  type: 'mysql',
+  type: "mysql",
   host: GLOBAL_DB_HOST,
   port: +GLOBAL_DB_PORT,
   username: GLOBAL_DB_USERNAME,
   password: GLOBAL_DB_PASSWORD,
   database: GLOBAL_DB_DATABASE,
-  // synchronize: Boolean(IS_DEV_MODE),
-  // logging: Boolean(IS_DEV_MODE),
-  logging: false,
+  synchronize: true,
+  logging: Boolean(IS_DEV_MODE),
   entities: [Todo],
 });

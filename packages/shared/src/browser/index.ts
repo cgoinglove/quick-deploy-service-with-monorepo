@@ -1,1 +1,1 @@
-export { getStorageManager } from './browser-storage';
+export { getStorageManager } from "./browser-storage";

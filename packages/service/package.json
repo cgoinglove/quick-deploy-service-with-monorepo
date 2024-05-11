@@ -1,8 +1,6 @@
 {
   "name": "@repo/service",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "test:watch": "vitest",
     "test": "vitest run",
@@ -28,7 +26,5 @@
     "typescript": "^5.3.3",
     "vitest": "^1.5.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

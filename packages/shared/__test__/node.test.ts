@@ -1,5 +1,5 @@
-import { test } from 'vitest';
+import { test } from "vitest";
 
-test('node', () => {
+test("node", () => {
   console.log(`node test`);
 });

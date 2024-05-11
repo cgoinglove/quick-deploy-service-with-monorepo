@@ -1,7 +1,6 @@
-
-import { useMemo, useRef } from 'react';
-import { useStateWithRef } from './use-state-with-ref';
-import { isFunction, isNull } from '@repo/shared';
+import { useMemo, useRef } from "react";
+import { useStateWithRef } from "./use-state-with-ref";
+import { isFunction, isNull } from "@repo/shared";
 
 export const useArrayReducer = <
   T extends Array<any> = Array<any>,
@@ -14,16 +13,24 @@ export const useArrayReducer = <
   const dispatch = useMemo(
     () => ({
       push: (value: Element | Element[]) =>
-        setState(prev =>
+        setState((prev) =>
           Array.isArray(value) ? [...prev, ...value] : [...prev, value],
         ),
-      remove: (index: number) =>
-        setState(prev => prev.filter((_, i) => i !== index)),
+      remove: (getter: number | ((value: Element) => boolean)) => {
+        setState((prev) => {
+          const removeIndex = isFunction(getter)
+            ? prev.findIndex(getter)
+            : getter;
+          const nextState = [...prev];
+          nextState.splice(removeIndex, 1);
+          return nextState;
+        });
+      },
       update: (
         getter: number | ((value: Element) => boolean),
         value: Setter<Element>,
       ) =>
-        setState(prev =>
+        setState((prev) =>
           prev.map((v, i) => {
             if (isFunction(getter) ? getter(v) : i === getter) {
               return isFunction(value) ? value(v) : value;
@@ -34,7 +41,7 @@ export const useArrayReducer = <
       set: setState,
       reset: () => setState(init.current),
       filter: (predicate: (v: Element) => any) =>
-        setState(prev => prev.filter(predicate)),
+        setState((prev) => prev.filter(predicate)),
       init: (value?: Setter<Element[]>) => {
         const nextState = isNull(value)
           ? ref.current

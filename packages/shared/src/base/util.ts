@@ -1,9 +1,10 @@
-export const wait = (delay = 3000) => new Promise((timeout) => setTimeout(timeout, delay));
+export const wait = (delay = 3000) =>
+  new Promise((timeout) => setTimeout(timeout, delay));
 
 export const createDebounce = () => {
   let timeout: ReturnType<typeof setTimeout>;
 
-  return (callback:Function, delay = 300) => {
+  return (callback: Function, delay = 300) => {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       callback();
@@ -20,10 +21,10 @@ export const autoIncrement = (
 export const noop = () => {};
 
 export const isString = (value: any): value is string =>
-  typeof value === 'string';
+  typeof value === "string";
 
 export const isFunction = (value: any): value is Function =>
-  typeof value === 'function';
+  typeof value === "function";
 
 export const isObject = (value: any): value is Record<string, any> =>
   Object(value) === value;
@@ -40,4 +41,3 @@ export const nextTick = async (callback: () => void) =>
       }
     }),
   );
-

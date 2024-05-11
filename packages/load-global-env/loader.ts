@@ -1,10 +1,10 @@
-import { config } from 'dotenv';
-import { expand } from 'dotenv-expand';
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { config } from "dotenv";
+import { expand } from "dotenv-expand";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = join(fileURLToPath(import.meta.url), '../', 'env');
+const ROOT = join(fileURLToPath(import.meta.url), "../", "env");
 
 const localEnv = `${ROOT}/.env.local`;
 

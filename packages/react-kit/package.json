@@ -5,6 +5,8 @@
     "**/*.css"
   ],
   "exports": {
+    "./text-filed": "./src/components/text-filed.tsx",
+    "./hooks": "./src/hooks/index.ts",
     "./todo": "./src/components/todo.tsx",
     "./button": "./src/components/button.tsx",
     "./styles.css": "./dist/index.css"
