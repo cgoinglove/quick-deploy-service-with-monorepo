@@ -10,18 +10,18 @@ export type TodoProps = {
   onClick: MouseEventHandler<HTMLDivElement>;
 };
 
-const TSS_WRAP = `ui-transition-colors ui-rounded-md ui-bg-slate-400 ui-w-full ui-px-3 ui-py-2 ui-text-slate-100 ui-flex ui-justify-center ui-items-center ui-gap-1`;
+const TSS_WRAP = `transition-colors rounded-md w-full px-3 py-2  flex justify-center items-center gap-1`;
 
 export function Todo({ complete, content, onClick }: TodoProps) {
   return (
     <div
-      className={`${TSS_WRAP} ${complete ? 'ui-bg-lime-500 ui-text-white' : 'ui-cursor-pointer hover:ui-opacity-90'}`}
+      className={`${complete ? 'bg-lime-500 text-white' : 'bg-slate-400 text-slate-100 cursor-pointer hover:opacity-90'} ${TSS_WRAP}`}
       onClick={onClick}
     >
-      <div className="ui-w-6 ui-pr-1">
+      <div className="w-6 pr-1">
         {complete ? <Icon path={mdiCheckBold} size={1} /> : null}
       </div>
-      <span className="ui-text-xl ui-font-bold">{content}</span>
+      <span className="text-xl font-bold">{content}</span>
     </div>
   );
 }
