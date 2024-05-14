@@ -1,35 +1,89 @@
-# 프로젝트 개요: WebCore
+# WebCore
 
-이 저장소는 PNPM과 TurboRepo를 사용하여 여러 Next.js 애플리케이션 및 공유 패키지를 관리하는 모노레포 구조로 구성되어 있습니다. 이 프로젝트는 효율적인 관리와 확장성을 보장하기 위해 현대적인 웹 개발 관행 및 도구를 활용합니다.
+이 저장소는 TurboRepo를 사용하여 여러 애플리케이션 및 공유 패키지를 관리하는 모노레포 구조로 구성되어 있습니다. 이 프로젝트는 효율적인 관리와 확장성을 보장하기 위해 현대적인 웹 개발 관행 및 도구를 활용합니다.
 
-## 구조
+## 목차
 
-모노레포에는 여러 Next.js 애플리케이션과 공유 유틸리티 패키지가 포함되어 있습니다. 각 패키지와 애플리케이션은 독립적으로 배포 가능하도록 설계되었지만, 공통 의존성은 루트 레벨에서 관리됩니다.
+- [프로젝트 개요](#프로젝트-개요)
+- [Main Stack](#Main-Stack)
+- [Workspace](#Workspace)
+- [설치](#설치)
+- [사용법](#사용법)
+- [기여](#기여)
+- [문의](#문의)
 
-### 앱
+## 프로젝트-개요
 
-- **docs**: Next.js로 구축된 문서화 사이트, 프로젝트 문서와 사용 예제를 제공합니다.
-- **web**: 사용자의 진입점이 되는 주요 웹 애플리케이션 인터페이스, Next.js로 구축됩니다.
+WebCore는 팀이나 개인이 여러 서비스들을 한 개의 레포지토리에서 작업할 수 있도록 설계된 모노레포 프로젝트입니다. 이 프로젝트는 다음과 같은 목표를 가지고 있습니다:
 
-### 패키지
+- **효율적인 모듈 관리**: 여러 애플리케이션에서 공통으로 사용되는 모듈을 중앙에서 관리하여 코드 중복을 최소화하고 유지보수를 용이하게 합니다.
+- **일관성 있는 코드 작성**: Plop을 사용하여 service 계층이나 React 컴포넌트를 생성함으로써, 일관된 컨벤션과 템플릿을 제공하여 코드의 일관성을 유지하고 개발 속도를 높입니다.
 
-- **config-eslint**: 모노레포 내 다양한 패키지 및 앱에서 사용되는 ESLint 구성을 포함합니다.
-- **config-tailwind**: 프로젝트 전체의 스타일링을 위한 Tailwind CSS 구성입니다.
-- **config-typescript**: React 라이브러리와 Next.js 애플리케이션을 포함한 다양한 환경에 맞춘 TypeScript 구성을 제공합니다.
-- **database-service**: 중앙집중식 서비스 레이어 기능을 제공하며, Next.js 애플리케이션에 의존성으로 포함되어 데이터베이스 상호작용을 처리합니다.
-- **react-kit**: 모노레포 내 다양한 Next.js 애플리케이션에서 사용되는 재사용 가능한 React 컴포넌트 라이브러리입니다.
-- **shared**: 모든 애플리케이션 및 패키지에서 사용할 수 있는 일반 유틸리티 및 도우미 함수를 포함합니다.
+## Main-Stack
 
-### 도구
+- **패키지 관리**: `turborepo` `pnpm`
+- **코드 컨벤션**: `plop` `eslint` `prettier`
+- **웹 서버**: `Next`
+- **서비스**: `typeorm`
+- **테스트, docs**: `vitest` `storybook`
 
-- **Turbo**: 애플리케이션 및 패키지의 효율적인 빌드 및 캐싱을 위해 사용됩니다.
-- **Plop**: `react-kit` 및 `service` 계층 내에서 코드 템플릿을 생성하는 데 사용되어 일관성을 유지하고 개발 속도를 높입니다.
+## Workspace
+
+#### `/apps/*`
+
+> 실제로 배포되는 애플리케이션들이 위치하며, `workspace/service` 패키지에 있는 서비스계층을 사용하여 Next.js 기반의 `admin`과 `web`, 문서화 사이트 `docs`가 포함됩니다.
+
+- [**/web** : Main Web 서비스로 Todo 를 조회 합니다.]()
+- [**/admin** : Backoffice 서비스. Todo 를 관리 합니다.]()
+
+---
+
+#### `/packages/*`
+
+> 여러 애플리케이션에서 공유되거나 사용되는 종속성 모듈들이 위치합니다. 예를 들어, `react-kit`은 재사용 가능한 React 컴포넌트,훅 라이브러리를 제공하고, `shared`는 유틸리티 함수들을 제공 합니다.
+
+- [**/service** : TypeORM을 기반으로 DI(Dependency Injection) 패턴을 활용하여 서비스 계층을 구현합니다.]()
+
+- [**/turbo-utils** : Plop을 기반으로 서비스 계층에 도메인 서비스 생성, 리액트 컴포넌트 생성, 워크스페이스 생성 등 템플릿 기반 제네레이터들이 있습니다.]()
+
+- [**/react-kit** : 모노레포 내 다양한 `React` 애플리케이션에서 사용되는 재사용 가능한 React 컴포넌트,Hook 라이브러리입니다.]()
+
+- [**/shared** : 모든 애플리케이션 및 패키지에서 사용할 수 있는 일반 유틸리티 및 도우미 함수를 포함합니다.]()
+
+- [**/load-global-env** : 글로벌 환경 설정을 로드하는 패키지입니다.]()
+
+- **/config-eslint** :
+- **/config-tailwind** :
+- **/config-typescript** :
+  모노레포 내 다양한 패키지 및 앱에서 사용되는 ESLint,Tailwind CSS,TypeScript 구성을 포함합니다.
 
 ## 시작하기
 
-이 모노레포로 작업을 시작하기 위한 단계는 다음과 같습니다:
+#### Clone
 
-1. **저장소 클론**:
-   ```bash
+```bash
    git clone https://github.com/cgoinglove/web-core-turborepo
-   ```
+```
+
+#### Install
+
+```bash
+   # corepack pnpm
+   pnpm i
+```
+
+#### Test
+
+```bash
+   # packages/service 사용하기 위해
+   # packages/load-global-env Database 환경변수 입력 필요
+
+   pnpm test
+   or
+   turbo test
+
+   # command filter
+   pnpm -F shared test
+   turbo -F service test
+
+```
