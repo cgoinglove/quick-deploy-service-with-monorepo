@@ -1,0 +1,20 @@
+import { InjectAble } from "../../helper/di-container";
+import { {{ pascalCase name }}Repository } from "./{{ kebabCase name }}.repository";
+import { type {{ pascalCase name }} } from "./{{ kebabCase name }}.entity";
+
+@InjectAble
+export class {{ pascalCase name }}Service {
+  constructor(private repository: {{ pascalCase name }}Repository) {}
+
+  async findAll() {
+    return this.repository.findAll();
+  }
+
+  async findById(id: {{ pascalCase name }}["id"]) {
+    return this.repository.findById(id);
+  }
+
+  async deleteById(id: {{ pascalCase name }}["id"]) {
+    return this.repository.deleteById(id);
+  }
+}

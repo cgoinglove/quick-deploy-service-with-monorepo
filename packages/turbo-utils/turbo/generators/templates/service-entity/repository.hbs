@@ -1,0 +1,24 @@
+import { Repository } from "../../helper/di-container";
+import { AppDataSource } from "../../orm-config";
+import { {{ pascalCase name }} } from "./{{ kebabCase name }}.entity";
+
+@Repository
+export class {{ pascalCase name }}Repository {
+
+  private repository = AppDataSource.getRepository({{ pascalCase name }});
+
+    async findAll() {
+      return this.repository.find({});
+    }
+
+    async findById(id:{{ pascalCase name }}["id"]) {
+      return this.repository.findOneBy({
+        id
+      });
+    }
+
+     async deleteById(id:{{ pascalCase name }}["id"]) {
+      return this.repository.delete(id);
+    }
+
+}

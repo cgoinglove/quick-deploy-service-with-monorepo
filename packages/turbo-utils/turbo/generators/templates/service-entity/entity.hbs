@@ -1,0 +1,16 @@
+import { Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+{{#if (eq useBaseEntity 'Y')}}
+import { BaseEntity } from '../../helper/base.entity';
+{{/if}}
+
+@Entity()
+export class {{ pascalCase name }} 
+{{#if (eq useBaseEntity 'Y')}}
+extends BaseEntity
+{{/if}}
+
+{
+  @PrimaryGeneratedColumn()
+  id: number;
+}

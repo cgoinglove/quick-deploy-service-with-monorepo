@@ -1,0 +1,35 @@
+import { suite, expect, test } from "vitest";
+import "reflect-metadata";
+import { {{ pascalCase name }}Service } from "../src/domain/{{ kebabCase name }}/{{ kebabCase name }}.service";
+import { inject } from "../src/helper/di-container";
+import { type {{ pascalCase name }} } from "../src/domain/{{ kebabCase name }}/{{ kebabCase name }}.entity";
+
+const service = inject({{ pascalCase name }}Service);
+
+suite("{{ pascalCase name }}", () => {
+
+  let id: {{ pascalCase name }}["id"];
+
+  test("Insert", () => {
+
+  });
+
+  test("Select", async () => {
+    const item = await service.findById(id)
+    expect(item).not.toBeNull()
+  });
+
+  test("Update", () => {
+   
+  });
+  test("Delete", async () => {
+    await service.deleteById(id);
+
+    const item = await service.findById(id);
+
+    expect(item).toBeNull();
+  });
+
+  test.skip("Delete All",  () => {
+  });
+});
