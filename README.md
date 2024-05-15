@@ -17,6 +17,45 @@
 - **일관성 있는 코드 작성**: Plop을 사용하여 service 계층이나 React 컴포넌트를 생성함으로써, 일관된 컨벤션과 템플릿을 제공하여 코드의 일관성을 유지하고 개발 속도를 높입니다.
   <br/>
 
+## Next.js Service Layout Dependency Inject
+
+```tsx
+import { inject, TodoService } from "@repo/service";
+
+export const revalidate = 10;
+
+export default async function Page() {
+  const todoService = inject(TodoService);
+
+  const list = await todoService.findAll();
+
+  return (
+    <main className={TSS_LAYOUT}>
+      <h1 className={TSS_TITLE}>Todo Read Only App</h1>
+      <div className={TSS_TODO_WRAP}>
+        {list.map((todo) => (
+          <Todo {...todo} key={todo.id} />
+        ))}
+      </div>
+    </main>
+  );
+}
+```
+
+`Next.js` 는 전통적인 **백엔드 프레임워크**와 다르게 **프론트엔드 개발자들이** 접근하기 용이하게 설계된 플랫폼 입니다.
+
+이는 주로 React 애플리케이션에 서버 사이드 **렌더링(SSR)** 또는 **정적 사이트 생성(SSG)** 을 통합하여 개발의 복잡성을 줄이는 데 중점을 둡니다.
+
+그럼에도 불구하고, `Next.js` 애플리케이션 내에 **직접 서비스 계층을 구현하는 경우는 상대적으로 드물다고** 볼 수 있습니다.
+
+이러한 배경에서, 우리는 [`@repo/service`](https://github.com/cgoinglove/web-core-turborepo/tree/main/packages/service) 패키지를 별도로 **분리하여 관리함**으로써 **서비스 계층을 모듈화**하고 재사용성을 높였습니다.
+
+이 구조는 **Next.js에서도 서비스 계층을 외부에서 주입받아 사용하는 방식**을 가능하게 하며, 이는 특히 데이터베이스와의 상호 작용을 주로 하는 서비스 로직을 분리할 필요가 있을 때 유용합니다.
+
+이 **패턴**은 Next.js의 범용성을 확장하며, 백엔드 중심의 프레임워크(예: Spring Boot)와 달리 **프론트엔드 개발자도 백엔드 로직을 쉽게 통합**할 수 있게 도와줍니다.
+
+결국, 이는 모노레포 내에서 각각의 서비스가 독립적으로 유지될 수 있도록 하면서도, 필요에 따라 서로 간의 의존성을 관리할 수 있는 유연성을 제공합니다.
+
 <br/>
 
 ## Workspace
@@ -44,10 +83,7 @@
 
 - **load-global-env** : [ 글로벌 환경 설정을 로드하는 패키지입니다.](https://github.com/cgoinglove/web-core-turborepo/tree/main/packages/load-global-env)
 
-- **config-eslint** :
-- **config-tailwind** :
-- **config-typescript** :
-  모노레포 내 다양한 패키지 및 앱에서 사용되는 ESLint,Tailwind CSS,TypeScript 구성을 포함합니다.
+- **config-eslint config-tailwind config-typescript** : 모노레포 내 다양한 패키지 및 앱에서 사용되는 ESLint,Tailwind CSS,TypeScript 구성을 포함합니다.
 
 <br/>
 

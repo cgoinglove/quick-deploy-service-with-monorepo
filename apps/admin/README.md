@@ -1,28 +1,50 @@
-## Getting Started
+## Admin
 
-First, run the development server:
+이 패키지는 Todo 항목을 관리하기 위한 Admin 애플리케이션으로, `Next14` 를 사용하여 서비스됩니다. 스타일 관리는 `Tailwind CSS`를 통해 이루어지며, 모노레포 구조 내에서 `@repo/service` 패키지를 활용하여 DI 기반의 TypeORM 서비스 계층을 주입받아 사용합니다.
 
-```bash
-yarn dev
+- 각각 **다른 서버(admin,web)** 에서 **하나의 서비스계층(@repo/service)** 의 원하는 서비스를 **주입받는 패턴**에 이의를 두었습니다
+- 이 구조는 **복수의 서비스**가 필요한 대규모 애플리케이션에서도 **유연하게 서비스를 재사용**할 수 있게 합니다.
+
+<br/>
+
+## API 라우트 구현
+
+Next.js의 기능을 활용하여 서버 사이드 렌더링과 함께 API 라우트를 구현합니다. 예를 들어, Todo 항목을 조회하는 API는 다음과 같습니다:
+
+```typescript
+/** /app/api/todo/route.ts */
+
+import { inject, TodoService } from "@repo/service";
+
+const todoService = inject(TodoService);
+
+export async function GET() {
+  const list = await todoService.findAll();
+  return Response.json(list);
+}
 ```
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+## 시작하기
 
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+개발 서버를 시작하려면 다음 명령어를 실행하세요:
 
-To create [API routes](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) add an `api/` directory to the `app/` directory with a `route.ts` file. For individual endpoints, create a subfolder in the `api` directory, like `api/hello/route.ts` would map to [http://localhost:3001/api/hello](http://localhost:3001/api/hello).
+````bash
+yarn dev
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 시작하기
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
+먼저 개발 서버를 실행하세요:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+pnpm dev
+````
 
-## Deploy on Vercel
+브라우저에서 http://localhost:3001을 열어 결과를 확인하세요.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
+### 더 알아보기
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Next.js에 대해 더 알아보고 싶다면 다음 자료를 확인하세요:
+
+- [Next.js Documentation](https://nextjs.org/docs) - Next.js의 기능과 API에 대해 알아보세요.
+- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - 인터랙티브한 Next.js 튜토리얼입니다.

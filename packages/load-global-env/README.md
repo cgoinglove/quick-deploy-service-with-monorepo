@@ -1,28 +1,34 @@
-## Getting Started
+# @repo/load-global-env
 
-First, run the development server:
+이 패키지는 모노레포의 워크스페이스에서 공유하는 환경 변수를 관리,로드 합니다.
+`dotenv`와 `dotenv-expand`를 사용하여 다양한 환경(.env) 파일에서 설정을 읽고 확장합니다.
+
+## 기능
+
+- `.env` 파일로부터 환경 변수를 로드합니다.
+- 환경별(`.env.local`, `.env.production` 등) 설정 파일을 지원합니다.
+- 설정 값 확장을 위한 `dotenv-expand` 통합.
+
+## 설치 및 사용방법
+
+이 패키지는 모노레포 내에 위치하며, 모노레포의 다른 패키지에서 참조되어 사용됩니다. 설치가 필요한 경우, 모노레포 루트에서 다음 명령을 실행하세요:
 
 ```bash
-yarn dev
+pnpm -F admin install @repo/load-global-env
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```typescript
+// project의 bootstrap 하는 영역에서
+import "@repo/load-global-env";
+```
 
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+## Test
 
-To create [API routes](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) add an `api/` directory to the `app/` directory with a `route.ts` file. For individual endpoints, create a subfolder in the `api` directory, like `api/hello/route.ts` would map to [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
+테스트를 실행하려면 다음 명령어를 사용하세요
 
-## Learn More
+```bash
 
-To learn more about Next.js, take a look at the following resources:
+pnpm -F load-global-env test
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+pnpm -F load-global-env test:watch
+```

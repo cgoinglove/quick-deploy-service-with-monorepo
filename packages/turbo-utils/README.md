@@ -1,28 +1,14 @@
-## Getting Started
+# @repo/turbo-utils
 
-First, run the development server:
+이 패키지는 모노레포 구조를 관리하고 개발자의 생산성을 향상시키기 위해 커스텀 Plop 제너레이터를 포함합니다. `React 컴포넌트`, `서비스 도메인` 레이어의 코드 생성을 자동화하여 일관성 있고 신속한 개발을 돕습니다.
+
+## 기능
+
+- **React Component Generator**: Plop을 사용하여 일관된 구조의 React 컴포넌트와 관련 스토리북 파일을 자동 생성합니다.
+- **Service and Domain Generator**: 백엔드 서비스 및 도메인 계층의 파일을 체계적으로 생성하여 애플리케이션의 아키텍처를 일관되게 유지할 수 있도록 지원합니다.
+
+## 사용
 
 ```bash
-yarn dev
+pnpm turbo gen
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
-
-To create [API routes](https://nextjs.org/docs/app/building-your-application/routing/router-handlers) add an `api/` directory to the `app/` directory with a `route.ts` file. For individual endpoints, create a subfolder in the `api` directory, like `api/hello/route.ts` would map to [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn/foundations/about-nextjs) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
