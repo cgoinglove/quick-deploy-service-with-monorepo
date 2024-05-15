@@ -29,7 +29,7 @@ importers:
         specifier: latest
         version: 1.13.3
 
-  apps/docs:
+  apps/admin:
     dependencies:
       "@repo/react-kit":
         specifier: workspace:*
