@@ -1,5 +1,15 @@
 # WebCore
 
+<p align="center">
+  <a href="https://turbo.build">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/4060187/196936123-f6e1db90-784d-4174-b774-92502b718836.png">
+      <img src="https://user-images.githubusercontent.com/4060187/196936104-5797972c-ab10-4834-bd61-0d1e5f442c9c.png" height="128">
+    </picture>
+    <h1 align="center">Turbo</h1>
+  </a>
+</p>
+
 이 저장소는 TurboRepo를 사용하여 여러 애플리케이션 및 공유 패키지를 관리하는 모노레포 구조로 구성되어 있습니다. 이 프로젝트는 효율적인 관리와 확장성을 보장하기 위해 현대적인 웹 개발 관행 및 도구를 활용합니다.
 
 ## 목차
@@ -7,10 +17,9 @@
 - [프로젝트 개요](#프로젝트-개요)
 - [Main Stack](#Main-Stack)
 - [Workspace](#Workspace)
-- [설치](#설치)
-- [사용법](#사용법)
-- [기여](#기여)
-- [문의](#문의)
+- [시작하기](#시작하기)
+
+---
 
 ## 프로젝트-개요
 
@@ -18,9 +27,11 @@ WebCore는 팀이나 개인이 여러 서비스들을 한 개의 레포지토리
 
 - **효율적인 모듈 관리**: 여러 애플리케이션에서 공통으로 사용되는 모듈을 중앙에서 관리하여 코드 중복을 최소화하고 유지보수를 용이하게 합니다.
 - **일관성 있는 코드 작성**: Plop을 사용하여 service 계층이나 React 컴포넌트를 생성함으로써, 일관된 컨벤션과 템플릿을 제공하여 코드의 일관성을 유지하고 개발 속도를 높입니다.
+  > 자세한 내용은 [Workspace](#Workspace)에서 패키지별 README.md 파일 참고
 
 ## Main-Stack
 
+- **언어**: `typescript` `javascript`
 - **패키지 관리**: `turborepo` `pnpm`
 - **코드 컨벤션**: `plop` `eslint` `prettier`
 - **웹 서버**: `Next`
@@ -72,18 +83,36 @@ WebCore는 팀이나 개인이 여러 서비스들을 한 개의 레포지토리
    pnpm i
 ```
 
-#### Test
+#### Scripts
+
+- **Workspace Common** : `lint` `test` `test:watch` `start` `type-check` `dev` `bulid`
 
 ```bash
    # packages/service 사용하기 위해
    # packages/load-global-env Database 환경변수 입력 필요
 
    pnpm test
-   or
+   # or
    turbo test
 
-   # command filter
+   # scripts filter
    pnpm -F shared test
    turbo -F service test
+```
 
+- **Plop Generator** : `turbo gen`
+
+```bash
+   turbo gen
+   # or
+   turbo gen react-component
+```
+
+- **Clean** : `pnpm -w clean`
+
+```bash
+   # root
+   pnpm clean
+   # or
+   pnpm -w clean
 ```
