@@ -7,6 +7,7 @@
     "type-check": "turbo type-check",
     "storybook": "pnpm -F react-kit storybook",
     "prepare": "husky install",
+    "docker:mysql": "docker-compose up -d",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "node ./script-helper/clean.js"
   },
