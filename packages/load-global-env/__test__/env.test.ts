@@ -19,7 +19,7 @@ test("load-env", async () => {
   writeFileSync(filePath, `${MOCK_ENV_KEY}=${MOCK_ENV_VALUE}`);
 
   // excute loader
-  await import("../loader");
+  require("../dist/bundle.cjs");
 
   expect(process.env[MOCK_ENV_KEY]).toBe(MOCK_ENV_VALUE);
 

@@ -11,17 +11,23 @@
       ]
     },
     "test": {
-      "cache": false
+      "cache": false,
+      "dependsOn": ["@repo/load-global-env#build"],
+      "outputs": ["dist/**"]
     },
     "test:watch": {
-      "cache": false
+      "cache": false,
+      "dependsOn": ["@repo/load-global-env#build"],
+      "outputs": ["dist/**"]
     },
     "start": {},
     "lint": {},
     "type-check": {},
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "dependsOn": ["@repo/load-global-env#build"],
+      "outputs": ["dist/**"]
     }
   }
 }
