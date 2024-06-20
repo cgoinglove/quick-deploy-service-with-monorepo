@@ -33,5 +33,6 @@ module.exports = {
     "@typescript-eslint/no-unsafe-argument": "off",
     "no-nested-ternary": "off",
     eqeqeq: "off",
+    "react-hooks/exhaustive-deps": "off",
   },
 };

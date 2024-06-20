@@ -1,8 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "tasks": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": [
         "dist/**",
         ".next/**",
@@ -11,14 +13,18 @@
       ]
     },
     "test": {
-      "cache": false,
-      "dependsOn": ["@repo/load-global-env#build"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "@repo/load-global-env#build"
+      ]
     },
     "test:watch": {
       "cache": false,
-      "dependsOn": ["@repo/load-global-env#build"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "@repo/load-global-env#build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "start": {},
     "lint": {},
@@ -26,8 +32,15 @@
     "dev": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["@repo/load-global-env#build"],
-      "outputs": ["dist/**"]
-    }
+      "dependsOn": [
+        "@repo/load-global-env#build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "@repo/load-global-env#build": {
+      "cache": true
+    } 
   }
 }
