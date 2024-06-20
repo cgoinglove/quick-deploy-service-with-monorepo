@@ -10,6 +10,9 @@
   "exports": {
     ".": "./src/index.ts"
   },
+  "peerDependencies": {
+    "typeorm": "^0.3.20"
+  },
   "dependencies": {
     "@repo/shared": "workspace:^",
     "mysql2": "^3.9.7",
